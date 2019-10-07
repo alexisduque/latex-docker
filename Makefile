@@ -1,4 +1,4 @@
-NS = blang
+NS = alexisduque
 REPO = latex
 IMAGE = $(NS)/$(REPO)
 

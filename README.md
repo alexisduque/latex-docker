@@ -1,7 +1,9 @@
-Latex docker container [![Docker hub](https://img.shields.io/docker/pulls/blang/latex.svg)](https://hub.docker.com/r/blang/latex/)
+Latex docker container [![Docker hub](https://img.shields.io/docker/pulls/alexisduque/latex.svg)](https://hub.docker.com/r/alexisduque/latex/)
 ======================
 
 This container helps compiling latex sources without the need to install all latex packages on your system.
+
+It relies on Benedikt Lang <mail@blang.io> excellent work and updates base container to Ubuntu Disco (19.04).
 
 Why should I use this container?
 -----
@@ -15,16 +17,16 @@ Versions
 --------
 All versions are based on Ubuntu: ([See all tags](https://hub.docker.com/r/blang/latex/))
 
-- [blang/latex:ubuntu (:latest) - Dockerfile.ubuntu](Dockerfile.ubuntu) Ubuntu TexLive distribution: Old but stable, most needed package: texlive-full (3.9GB)
-- [blang/latex:ctanbasic - Dockerfile.basic](Dockerfile.basic) CTAN TexLive Scheme-basic: Up-to-date, only basic packages, base for custom builds (500MB)
-- [blang/latex:ctanfull - Dockerfile.full](Dockerfile.full) CTAN TexLive Scheme-full: Up-to-date, all packages (5.6GB)
+- [alexisduque/latex:ubuntu (:latest) - Dockerfile.ubuntu](Dockerfile.ubuntu) Ubuntu TexLive distribution: Old but stable, most needed package: texlive-full (3.9GB)
+- [alexisduque/latex:ctanbasic - Dockerfile.basic](Dockerfile.basic) CTAN TexLive Scheme-basic: Up-to-date, only basic packages, base for custom builds (500MB)
+- [alexisduque/latex:ctanfull - Dockerfile.full](Dockerfile.full) CTAN TexLive Scheme-full: Up-to-date, all packages (5.6GB)
 
 If you need...
-- ...the most-stuff-works-out-of-the-box package, try `blang/latex:ubuntu`.
-- ...the most recent version of everything, try `blang/latex:ctanfull`.
-- ...a stable base for your custom texlive build, try `blang/latex:ctanbasic`.
+- ...the most-stuff-works-out-of-the-box package, try `alexisduque/latex:ubuntu`.
+- ...the most recent version of everything, try `alexisduque/latex:ctanfull`.
+- ...a stable base for your custom texlive build, try `alexisduque/latex:ctanbasic`.
 
-For stability, choose a more specific version tag ([See all tags](https://hub.docker.com/r/blang/latex/))
+For stability, choose a more specific version tag ([See all tags](https://hub.docker.com/r/alexisduque/latex/))
 
 Quick Setup
 -----------
@@ -35,10 +37,10 @@ Compile latex sources using docker:
 cd my_latex_project
 
 # Download the command wrapper and make it executable
-wget https://raw.githubusercontent.com/blang/latex-docker/master/latexdockercmd.sh
+wget https://raw.githubusercontent.com/alexisduque/latex-docker/master/latexdockercmd.sh
 chmod +x latexdockercmd.sh
 
-# Optional: Change the version (see above, default blang/latex:ubuntu)
+# Optional: Change the version (see above, default alexisduque/latex:ubuntu)
 edit ./latexdockercmd.sh
 
 # Compile using pdflatex (docker will pull the image automatically)
@@ -88,7 +90,7 @@ If software is missing, extend this base image with your own software:
 
 Create a Dockerfile or download [Dockerfile.blueprint](Dockerfile.blueprint) for examples:
 ```
-FROM blang/latex:ubuntu
+FROM alexisduque/latex:ubuntu
 
 # Minted + Pygments
 RUN tlmgr install minted
