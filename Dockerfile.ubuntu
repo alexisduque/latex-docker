@@ -6,8 +6,10 @@ RUN apt-get update -q && apt-get install -qy \
     texlive-full latexmk python3 \
     python-pygments gnuplot \
     make git \
+    locales \
     && rm -rf /var/lib/apt/lists/*
 
+RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
